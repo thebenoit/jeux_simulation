@@ -34,6 +34,7 @@ public class Vue_Souris : MonoBehaviour
         //Rotation sur la camera
         float vertical = Input.GetAxis("Mouse Y") * Time.deltaTime * vitesseRotation;
         rotationx -= vertical;
+        //limite la rotationx entre angleMinimum et angleMaximum
         rotationx = Mathf.Clamp(rotationx, angleMinimum, angleMaximum);
         transform.localRotation = Quaternion.Euler(rotationx, 0, 0);
     }
