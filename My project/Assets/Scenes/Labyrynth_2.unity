@@ -286,7 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 5
-  facteurCourse: 1.5
+  facteurCourse: 5
+  forceSaut: 20
 --- !u!1001 &368588381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,7 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleMinimum: 2
   angleMaximum: 180
-  vitesseRotation: 90
+  vitesseRotation: 100
 --- !u!1 &1508020642
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ public class DeplacementJoueur : MonoBehaviour
 
     [SerializeField] private float vitesse = 20f;
     [SerializeField] private float facteurCourse = 1000f;
+
+    float _velocity;
+    [SerializeField] float forceSaut = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,26 @@ public class DeplacementJoueur : MonoBehaviour
 
      Vector3 vitesseDeplacement = direction * vitesseActuelle;
 
-     controller.SimpleMove(vitesseDeplacement);
+
+     bool toucherLeSol = controller.isGrounded;
+
+     if(toucherLeSol && Input.GetButtonDown("Jump"))
+     {
+        _velocity = forceSaut;
+     }
+     else if(toucherLeSol)
+     {
+        _velocity = 0f;
+     }
+
+     _velocity += Physics.gravity.y * Time.deltaTime;
+
+     vitesseDeplacement.y += _velocity;
+
+     //utilisation de simpleMove
+     //controller.SimpleMove(vitesseDeplacement);
+
+     controller.Move(vitesseDeplacement * Time.deltaTime);
      
      
     }
