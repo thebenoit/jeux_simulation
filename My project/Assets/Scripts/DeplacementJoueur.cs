@@ -67,6 +67,7 @@ public class DeplacementJoueur : MonoBehaviour
     {
         //desactiver le controller pendant le respawn
         _controller.enabled = false;
+        //teleporter le joeur a la position initiale
         transform.position = _positionInitiale;
         transform.rotation = _rotationInitiale;
         _controller.enabled = true;
