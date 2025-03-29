@@ -6,7 +6,8 @@ public class DeplacementJoueur : MonoBehaviour
 {
     private CharacterController controller;
 
-    [SerializeField] private float vitesse = 5f;
+    [SerializeField] private float vitesse = 20f;
+    [SerializeField] private float facteurCourse = 1000f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,15 @@ public class DeplacementJoueur : MonoBehaviour
     {
      float horizontal = Input.GetAxis("Horizontal");
      float vertical = Input.GetAxis("Vertical");
+     float vitesseActuelle = Input.GetKey(KeyCode.LeftShift) ? vitesse * facteurCourse : vitesse;
+     
+
 
      Vector3 direction = new Vector3(horizontal, 0f, vertical);
      direction = transform.TransformDirection(direction);
-     
-     Vector3 vitesseDeplacement = direction * vitesse;
+
+     Vector3 vitesseDeplacement = direction * vitesseActuelle;
+
      controller.SimpleMove(vitesseDeplacement);
      
      
