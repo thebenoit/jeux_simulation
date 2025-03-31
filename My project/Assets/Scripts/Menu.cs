@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Menu
 {
-    public float Vitesse;
-    public float Acceleration;
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// L'instance statique du singleton
+    /// </summary>
     public static Menu Instance {get;} = new Menu();
+
+    /// <summary>
+    /// La vitesse du personnage
+    /// </summary>
+    public int Vitesse {set; get;} = 15;
+
+    /// <summary>
+    /// L'accélération du personnage
+    /// </summary>
+    public int Acceleration {set; get;} = 15;    
 
     // Update is called once per frame
     private Menu()
