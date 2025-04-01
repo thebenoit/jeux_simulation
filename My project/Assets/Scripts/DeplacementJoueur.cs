@@ -6,8 +6,8 @@ public class DeplacementJoueur : MonoBehaviour
 {
     private CharacterController _controller;
 
-    [SerializeField] private float vitesse = 20f;
-    [SerializeField] private float facteurCourse = 1000f;
+    [SerializeField] private float vitesse;
+    [SerializeField] private float facteurCourse;
 
     private Vector3 _positionInitiale;
     private Quaternion _rotationInitiale;
@@ -22,6 +22,9 @@ public class DeplacementJoueur : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _positionInitiale = transform.position;
         _rotationInitiale = transform.rotation;
+
+        vitesse = Menu.Instance.Vitesse;
+        facteurCourse = Menu.Instance.Acceleration;
 
     }
 
@@ -57,7 +60,9 @@ public class DeplacementJoueur : MonoBehaviour
 
      //utilisation de simpleMove
      //controller.SimpleMove(vitesseDeplacement);
-     Debug.Log("Velocity: " + _velocity);
+     Debug.Log("Vitesse " + vitesse);
+     Debug.Log("Facteur course " + facteurCourse);
+     
      _controller.Move(vitesseDeplacement * Time.deltaTime);
      
      

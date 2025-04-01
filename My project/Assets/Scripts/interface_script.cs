@@ -49,8 +49,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void chargerJeu()
     {
         ChangerVitesse();
-        ChangerAcceleration();
-        
+        ChangerAcceleration();       
         SceneManager.LoadScene("Labyrynth_2");
 
     }

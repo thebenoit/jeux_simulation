@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -8.09, y: 16.57, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -680,6 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebae719abfc809548af32352db254320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saisieVitesse: {fileID: 0}
+  saisieAcceleration: {fileID: 0}
 --- !u!4 &1647124217
 Transform:
   m_ObjectHideFlags: 0
@@ -831,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573165386153891368, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.72
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 7573165386153891368, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -873,11 +875,37 @@ PrefabInstance:
       propertyPath: forceSaut
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6123488424696865997, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
+    - {fileID: 8845390895233225790, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1079311118157339689, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6371685014449697878}
   m_SourcePrefab: {fileID: 100100000, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
+--- !u!1 &6371685014449697877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1079311118157339689, guid: 677b04e42bf8c514da1f0a2892180cf1, type: 3}
+  m_PrefabInstance: {fileID: 6371685014449697876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6371685014449697878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371685014449697877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2a9473b84968242bbd5f83c73ae363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 20
+  facteurCourse: 1000
+  forceSaut: 5
+  _objectif: {fileID: 805617868}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
