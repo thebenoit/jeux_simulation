@@ -51,8 +51,12 @@ public class NewBehaviourScript : MonoBehaviour
     public void chargerJeu()
     {
         ChangerVitesse();
-        ChangerAcceleration();       
+        ChangerAcceleration();
+        Debug.Log("Charger le jeu");
+        Debug.Log("Vitesse: " + GameManager.Instance.Vitesse);
+        Debug.Log("Acceleration: " + GameManager.Instance.FacteurAcceleration);
         SceneManager.LoadScene("Labyrynth_2");
+        Time.timeScale = 1f;
 
     }
 
