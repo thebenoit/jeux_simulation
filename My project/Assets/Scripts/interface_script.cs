@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -24,6 +26,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         saisieVitesse.text = Menu.Instance.Acceleration.ToString();
         saisieAcceleration.text = Menu.Instance.Vitesse.ToString();
+        Scene scene = SceneManager.GetSceneByName("Labyrynth_2");
+        Debug.Log("Scene name: " + scene.name);
+        Debug.Log("Is scene loaded? " + scene.isLoaded);
+
     }
 
     // Update is called once per frame
@@ -42,6 +48,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void chargerJeu()
     {
+        ChangerVitesse();
+        ChangerAcceleration();
+        
+        SceneManager.LoadScene("Labyrynth_2");
 
     }
 
@@ -51,7 +61,7 @@ public class NewBehaviourScript : MonoBehaviour
         
     }
 
-    public void changerAcceleration()
+    public void ChangerAcceleration()
     {
         Menu.Instance.Acceleration = Int32.Parse(saisieAcceleration.text);
     }
