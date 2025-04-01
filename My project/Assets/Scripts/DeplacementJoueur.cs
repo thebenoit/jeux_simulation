@@ -19,10 +19,7 @@ public class DeplacementJoueur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GameManager.Instance.OuvrirMenu();
-        }
+
         _controller = GetComponent<CharacterController>();
         _positionInitiale = transform.position;
         _rotationInitiale = transform.rotation;
@@ -71,6 +68,12 @@ public class DeplacementJoueur : MonoBehaviour
    
      
      _controller.Move(vitesseDeplacement * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Appuyer sur Echap");
+            GameManager.Instance.OuvrirMenu();
+        }
      
      
     }
