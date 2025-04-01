@@ -24,17 +24,19 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saisieVitesse.text = Menu.Instance.Acceleration.ToString();
-        saisieAcceleration.text = Menu.Instance.Vitesse.ToString();
-        Scene scene = SceneManager.GetSceneByName("Labyrynth_2");
-        Debug.Log("Scene name: " + scene.name);
-        Debug.Log("Is scene loaded? " + scene.isLoaded);
+        saisieVitesse.text = GameManager.Instance.FacteurAcceleration.ToString();
+        saisieAcceleration.text = GameManager.Instance.Vitesse.ToString();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameManager.Instance.FermerMenu();
+        }
         
     }
     public void Quitter()
@@ -56,12 +58,12 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void ChangerVitesse()
     {
-        Menu.Instance.Vitesse = Int32.Parse(saisieVitesse.text);
+        GameManager.Instance.Vitesse = Int32.Parse(saisieVitesse.text);
         
     }
 
     public void ChangerAcceleration()
     {
-        Menu.Instance.Acceleration = Int32.Parse(saisieAcceleration.text);
+        GameManager.Instance.FacteurAcceleration = Int32.Parse(saisieAcceleration.text);
     }
 }

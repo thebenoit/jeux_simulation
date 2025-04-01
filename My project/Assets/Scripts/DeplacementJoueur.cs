@@ -19,12 +19,20 @@ public class DeplacementJoueur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.OuvrirMenu();
+        }
         _controller = GetComponent<CharacterController>();
         _positionInitiale = transform.position;
         _rotationInitiale = transform.rotation;
 
-        vitesse = Menu.Instance.Vitesse;
-        facteurCourse = Menu.Instance.Acceleration;
+        vitesse = GameManager.Instance.Vitesse;
+        facteurCourse = GameManager.Instance.FacteurAcceleration;
+
+        Debug.Log("Vitesse: " + vitesse);
+        Debug.Log("FacteurAcceleration: " + facteurCourse);
+
 
     }
 
@@ -60,8 +68,7 @@ public class DeplacementJoueur : MonoBehaviour
 
      //utilisation de simpleMove
      //controller.SimpleMove(vitesseDeplacement);
-     Debug.Log("Vitesse " + vitesse);
-     Debug.Log("Facteur course " + facteurCourse);
+   
      
      _controller.Move(vitesseDeplacement * Time.deltaTime);
      

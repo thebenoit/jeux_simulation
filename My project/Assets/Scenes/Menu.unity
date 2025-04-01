@@ -2538,6 +2538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061860720}
   - component: {fileID: 2061860721}
+  - component: {fileID: 2061860722}
   m_Layer: 0
   m_Name: ControlleurInterface
   m_TagString: Untagged
@@ -2574,6 +2575,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saisieVitesse: {fileID: 1871082660}
   saisieAcceleration: {fileID: 1312643474}
+--- !u!114 &2061860722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061860718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7a1acb0e7437b41b3caee7a7920a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vitesese: 0
+  _facteurAcceleration: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

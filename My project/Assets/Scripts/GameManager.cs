@@ -40,8 +40,7 @@ public class GameManager: MonoBehaviour
 
     public void OuvrirMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+            Debug.Log("OuvrirMenu");
             // Déverrouiller et afficher le curseur
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -51,9 +50,14 @@ public class GameManager: MonoBehaviour
             SceneManager.LoadScene("Menu");           
             // Optionnel: mettre le jeu en pause
             Time.timeScale = 0f;
-        }
     }
 
- 
-    
+    public void FermerMenu()
+    {
+        Debug.Log("FermerMenu");
+        // Fermer le menu (vous devrez référencer votre menu UI)
+        SceneManager.LoadScene("Labyrynth_2");
+        // Optionnel: reprendre le jeu
+        Time.timeScale = 1f;
+    }
 }
