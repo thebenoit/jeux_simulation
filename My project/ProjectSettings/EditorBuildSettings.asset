@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Labyrynth_2.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Victoire.unity
+    guid: f57a8dfddffcfa949bce3d3e10a4ccec
   m_configObjects: {}

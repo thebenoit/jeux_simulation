@@ -60,6 +60,12 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
 
+    private void NouvellePartie()
+    {
+        SceneManager.LoadScene("Labyrynth_2");
+        Time.timeScale = 1f;
+    }
+
     public void ChangerVitesse()
     {
         GameManager.Instance.Vitesse = Int32.Parse(saisieVitesse.text);
