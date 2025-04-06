@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class DeplacerCube : MonoBehaviour
@@ -22,9 +21,9 @@ public class DeplacerCube : MonoBehaviour
          Vector3? pointClique = Utilitaires.DeterminerClic(_plan);
          if (pointClique != null)
          {
-            _agent.destination = pointClique.value;
+            _agent.destination = pointClique.Value;
          }
-         
+
         }
         
     }
