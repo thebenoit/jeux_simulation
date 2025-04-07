@@ -1146,6 +1146,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1731367452085963736, guid: ffd7d96f91895dc43b7d0ba968a15710, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1672320090}
+    - targetCorrespondingSourceObject: {fileID: 1731367452085963736, guid: ffd7d96f91895dc43b7d0ba968a15710, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672320096}
     - targetCorrespondingSourceObject: {fileID: 9114713734013798104, guid: ffd7d96f91895dc43b7d0ba968a15710, type: 3}
       insertIndex: -1
       addedObject: {fileID: 508916003}
@@ -1980,6 +1983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1194872592, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_Speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1194872593, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: _pointsPatrouille.Array.data[0]
       value: 
@@ -3277,6 +3284,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forceSaut: 5
+--- !u!114 &1672320096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672320089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908496b14191e5b4d9791e0a79379d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 630823713418705160, guid: b562b3322fdcc834ab8efbbfef2a9652, type: 3}
+  force: 1000
 --- !u!1001 &1707692683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4052,6 +4073,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1194872592, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_Speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1194872593, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: _pointsPatrouille.Array.data[0]
       value: 
