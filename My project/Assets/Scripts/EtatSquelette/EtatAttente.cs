@@ -7,7 +7,7 @@ public class EtatAttente : EtatSquelette
 
     private float _tempAttente;
     // Start is called before the first frame update
-    public EtatAttente(MouvementSquelette p_squelette, GameObject joueur) : base(p_squelette, joueur)
+    public EtatAttente(skeletonMouvement p_squelette, GameObject joueur) : base(p_squelette, joueur)
     {
         _tempAttente = 0.0f;
     }
@@ -21,12 +21,12 @@ public class EtatAttente : EtatSquelette
         _tempAttente -= deltaTime;
         if(_tempAttente <= 0.0f)
         {
-            MouvementSquelette mouvement = Squelette.GetComponent<MouvementSquelette>();
+            skeletonMouvement mouvement = Squelette.GetComponent<skeletonMouvement>();
             mouvement.ChangerEtat(mouvement.Patrouille);
         } 
         else if (JoueurVisible())
         {
-            MouvementSquelette mouvement = Squelette.GetComponent<MouvementSquelette>();
+            skeletonMouvement mouvement = Squelette.GetComponent<skeletonMouvement>();
             mouvement.ChangerEtat(mouvement.Poursuite);
         }
     }

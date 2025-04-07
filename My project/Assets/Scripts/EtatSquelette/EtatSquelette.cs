@@ -5,17 +5,17 @@ using UnityEngine;
 public abstract class EtatSquelette 
 {
     // Start is called before the first frame update
-    public MouvementSquelette Squelette{get; set;}
+    public skeletonMouvement Squelette{get; set;}
     public GameObject Joueur{get; set;}
     public UnityEngine.AI.NavMeshAgent AgentMouvement{get; set;}
     public Animator Animateur{get; set;}
 
-    public EtatSquelette(MouvementSquelette p_squelette, GameObject p_joueur)
+    public EtatSquelette(skeletonMouvement p_squelette, GameObject p_joueur)
     {
-        Squelette = Squelette;
-        Joueur = Joueur;
-        AgentMouvement = Squelette.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Animateur = squelette.GetComponent<Animator>();
+        Squelette = p_squelette;
+        Joueur = p_joueur;
+        AgentMouvement = p_squelette.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Animateur = p_squelette.GetComponent<Animator>();
     }
 
     protected bool JoueurVisible()
@@ -37,6 +37,7 @@ public abstract class EtatSquelette
             //Il n'y a pas d'obstacle, on vérifie l'angle
             float angle = Vector3.Angle(Squelette.transform.forward, directionJoueur);
             visible = angle <= 40.0f;
+            Debug.Log("Joueur visible : " + visible);
             }
 
         }

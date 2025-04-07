@@ -5,7 +5,7 @@ using UnityEngine;
 public class EtatAttaque : EtatSquelette
 {
     // Start is called before the first frame update
-    public EtatAttaque(MouvementSquelette p_squelette, GameObject joueur) : base(p_squelette, joueur)
+    public EtatAttaque(skeletonMouvement p_squelette, GameObject joueur) : base(p_squelette, joueur)
     {
 
     }

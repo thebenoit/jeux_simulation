@@ -5,22 +5,24 @@ using UnityEngine;
 public class EtatPoursuite : EtatSquelette
 {
    
-   public EtatPoursuite(MouvementSquelette squelette, GameObject joueur) : base(squelette, joueur)
+   public EtatPoursuite(skeletonMouvement squelette, GameObject joueur) : base(squelette, joueur)
    {
 
    }
    public override void Enter()
    {
-        AnimatorSetBool("Walk",true);
+        Animateur.SetBool("Walk",true);
+        Debug.Log("'Mode Poursuite Activée");
         AgentMouvement.destination = Joueur.transform.position;
    }
 
    public override void Handle(float deltaTime)
     {
         bool attaque_requise = false;
+        
         if(!JoueurVisible())
         {
-            MouvementSquelette mouvement = Squelette.GetComponent<MouvementSquelette>();
+            skeletonMouvement mouvement = Squelette.GetComponent<skeletonMouvement>();
             mouvement.ChangerEtat(mouvement.Attente);
         }
         else
@@ -38,7 +40,7 @@ public class EtatPoursuite : EtatSquelette
 
     public override void Leave()
     {
-        AnimatorSetBool("Walk",false);
+        Animateur.SetBool("Walk",false);
     }
    
 }

@@ -5,12 +5,17 @@ using UnityEngine;
 public class EtatPatrouille : EtatSquelette
 {
     private int _pointIndex;
-    private List<Transform> _pointsPatrouille;
+    private Transform[] _pointsPatrouille;
     // Start is called before the first frame update
-    public EtatPatrouille(MouvementSquelette p_squelette, GameObject joueur, Transform[] points) : base(p_squelette, joueur)
+    public EtatPatrouille(skeletonMouvement p_squelette, GameObject joueur, Transform[] points) : base(p_squelette, joueur)
     {
-       _points = points;
-       _indexPatrouille = 0; 
+       _pointsPatrouille = points;
+       _pointIndex = 0; 
+    }
+
+    public override void Enter()
+    {
+        Animateur.SetBool("Walk",true);
     }
 
     public override void Handle(float deltaTime)
@@ -19,21 +24,21 @@ public class EtatPatrouille : EtatSquelette
         {
           if (AgentMouvement.remainingDistance <= 0.1f)
           {
-            AgentMouvement.destination = _pointsPatrouille[_indexPatrouille].position;
-            _indexPatrouille = (_indexPatrouille + 1) % _points.Length;
+            AgentMouvement.destination = _pointsPatrouille[_pointIndex].position;
+            _pointIndex = (_pointIndex + 1) % _pointsPatrouille.Length;
           }
         }
-
+        //si le joueur est visible, on change d'etat
         if(JoueurVisible())
         {
-            MouvementSquelette mouvement = Squelette.GetComponent<MouvementSquelette>();
+            skeletonMouvement mouvement = Squelette.GetComponent<skeletonMouvement>();
             mouvement.ChangerEtat(mouvement.Poursuite);
         }
     }
 
     public override void Leave()
     {
-        AnimatorSetBool("Walk",false);
+        Animateur.SetBool("Walk",false);
     }
 
     // Update is called once per frame
