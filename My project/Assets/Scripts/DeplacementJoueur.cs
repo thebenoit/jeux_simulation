@@ -111,7 +111,7 @@ public class DeplacementJoueur : MonoBehaviour
         if(other.gameObject.tag == "Enemi")
         {
             Debug.Log("Toucher un ennemi");
-            ChargerDefaite();
+            //ChargerDefaite();
         }
     }
 }
