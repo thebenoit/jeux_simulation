@@ -10,11 +10,13 @@ public class PointsDeVie : MonoBehaviour
     [SerializeField] private AudioSource _sonProjectile;
 
     private int _pointsDeVie;
+    private Camera _camera;
 
     // Start is called before the first frame update
     void Start()
     {
         _pointsDeVie = _pointsDeVieMax;
+        _camera = FindObjectOfType<Camera>();
     }
 
     // Update is called once per frame
@@ -25,7 +27,20 @@ public class PointsDeVie : MonoBehaviour
 
     void LateUpdate()
     {
-        _barreDeVie.transform.LookAt(Camera.main.transform);
+        if (_camera == null)
+        {
+            _camera = FindObjectOfType<Camera>();
+            if (_camera == null)
+            {
+                Debug.LogError("Aucune caméra trouvée dans la scène!");
+                return;
+            }
+        }
+
+        if (_barreDeVie != null)
+        {
+            _barreDeVie.transform.LookAt(_camera.transform);
+        }
     }
 
     public void RetirerPointsDeVie(int dommages)

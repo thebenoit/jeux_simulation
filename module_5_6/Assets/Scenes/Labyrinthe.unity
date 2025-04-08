@@ -2004,7 +2004,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 423560242}
     - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4531008866627365377, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
@@ -2076,9 +2084,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926743221768198759, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: _barreDeVie
+      value: 
+      objectReference: {fileID: 943647674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2151,6 +2171,17 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!114 &943647674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8401474666736671402, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+  m_PrefabInstance: {fileID: 914333284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &944652262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2299,6 +2330,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e50b7d6f0daa59a41848f7b2fc07a339, type: 3}
+--- !u!114 &998128132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8401474666736671402, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+  m_PrefabInstance: {fileID: 6942786943949290937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1044318747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4102,7 +4144,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 207910184}
     - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4531008866627365377, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
@@ -4174,9 +4224,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926743221768198759, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: _barreDeVie
+      value: 
+      objectReference: {fileID: 998128132}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -23,17 +23,19 @@ public class LancerProjectile : MonoBehaviour
         }
     }
 
-    public void Lancer()
+    public void FixedUpdate()
     {   
         if (_lancerProjectile)
         {
             GameObject proj = Instantiate(projectile);
             proj.transform.position = transform.position + transform.forward;
             proj.GetComponent<Rigidbody>().AddForce(transform.forward * force + Vector3.up * 50);
+            _lancerProjectile = false;
+            // détruire le projectile après 3 secondes
+            Destroy(proj, 3f);
 
 
-
-        Destroy(proj, 3f);
+            
+        }
     }
-}
 }
