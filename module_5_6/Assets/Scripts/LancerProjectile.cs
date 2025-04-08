@@ -6,6 +6,8 @@ public class LancerProjectile : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
     [SerializeField] float force = 5000;
+
+    private bool _lancerProjectile = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,21 @@ public class LancerProjectile : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Lancer();
+            _lancerProjectile = true;
         }
     }
 
     public void Lancer()
-    {
-        GameObject proj = Instantiate(projectile);
-        proj.transform.position = transform.position + transform.forward;
-        proj.GetComponent<Rigidbody>().AddForce(transform.forward * force + Vector3.up * 50);
+    {   
+        if (_lancerProjectile)
+        {
+            GameObject proj = Instantiate(projectile);
+            proj.transform.position = transform.position + transform.forward;
+            proj.GetComponent<Rigidbody>().AddForce(transform.forward * force + Vector3.up * 50);
+
+
+
         Destroy(proj, 3f);
     }
+}
 }

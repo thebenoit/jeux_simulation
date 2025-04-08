@@ -2003,6 +2003,10 @@ PrefabInstance:
       propertyPath: _pointsPatrouille.Array.data[3]
       value: 
       objectReference: {fileID: 423560242}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4531008866627365377, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -2069,6 +2073,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942786942961412105, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4093,6 +4101,10 @@ PrefabInstance:
       propertyPath: _pointsPatrouille.Array.data[3]
       value: 
       objectReference: {fileID: 207910184}
+    - target: {fileID: 2749728996270957932, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4531008866627365377, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -4159,6 +4171,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942786942961412105, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484065509448940616, guid: 31907cbb8c45bc345a65eb8821b209f6, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
