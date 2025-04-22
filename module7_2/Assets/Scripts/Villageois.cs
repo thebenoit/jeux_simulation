@@ -11,11 +11,11 @@ public class Villageois : MonoBehaviour
     private int numeroRessourceChoisie = -1;
     private NavMeshAgent _navMeshAgent;
     
+    private StrategieChoixRessource strategieChoix = new StrategieChoixHasard();
+
     [SerializeField] private TMP_Text texteOr;
     [SerializeField] private TMP_Text textePlantes;
     [SerializeField] private TMP_Text texteRoches;
-
-    private Strategie strategie = new Strategie();
 
     private void Start()
     {
@@ -55,6 +55,12 @@ public class Villageois : MonoBehaviour
         texteRoches.text = "Roches: " + roches;
     }
 
+    public void ChangerStrategieChoix(StrategieChoixRessource strategie)
+    {
+        this.strategieChoix = strategie;
+        ChoisirRessource();
+    }
+
     private void ChoisirRessource()
     {
         // Choix au hasard
@@ -66,7 +72,8 @@ public class Villageois : MonoBehaviour
         }
         else
         {
-            numeroRessourceChoisie = Random.Range(0, nbRessourcesDisponibles);
+            numeroRessourceChoisie = strategieChoix.ChoisirRessource(this, GameManager.Instance.Ressources,
+                GameManager.Instance.NbRessourcesDisponibles);
 
             var objet = GameManager.Instance.Ressources[numeroRessourceChoisie];
             var ressource = objet.GetComponent<Ressource>();

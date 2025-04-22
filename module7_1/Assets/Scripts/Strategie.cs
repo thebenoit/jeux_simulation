@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class Strategie
+public abstract class Strategie
 {
-    int ChoisirRessource(GameObject[] ressources, Transform villageois);
+  public abstract int ChoisirRessource(GameObject[] ressources, Transform villageois);
 }
 
-class StrategieChoixHasard : Strategie
-{
-
-}
-class StrategieChoixPlusProche : Strategie
+public class StrategieChoixHasard : Strategie
 {
 
 }
-class StrategieChoixEquilibre : Strategie
+public class StrategieChoixPlusProche : Strategie
+{
+
+}
+public class StrategieChoixEquilibre : Strategie
 {
 
 }

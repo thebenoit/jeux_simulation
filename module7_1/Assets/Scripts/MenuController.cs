@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class MenuiController : MonoBehaviour
 {
+    private Villageois villageois;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        villageois = GetComponent<Villageois>();
     }
+private void ChoixPlusProche()
+{
+
+}
+private void ChoixAleatoire()
+{
+
+}
+private void ChoixEquilibre()
+{
+
+}
+
+
 }
