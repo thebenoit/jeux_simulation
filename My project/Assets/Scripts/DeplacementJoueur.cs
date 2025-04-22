@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeplacementJoueur : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class DeplacementJoueur : MonoBehaviour
         vitesse = GameManager.Instance.Vitesse;
         facteurCourse = GameManager.Instance.FacteurAcceleration;
 
+       
+
         Debug.Log("Vitesse: " + vitesse);
         Debug.Log("FacteurAcceleration: " + facteurCourse);
 
@@ -36,6 +39,7 @@ public class DeplacementJoueur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
      float horizontal = Input.GetAxis("Horizontal");
      float vertical = Input.GetAxis("Vertical");
      float vitesseActuelle = Input.GetKey(KeyCode.LeftShift) ? vitesse * facteurCourse : vitesse;
@@ -78,6 +82,11 @@ public class DeplacementJoueur : MonoBehaviour
      
     }
 
+    private void ChargerDefaite()
+    {
+        SceneManager.LoadScene("Defaite");
+    }
+
     private void ReplacerJoueur()
     {
         //desactiver le controller pendant le respawn
@@ -90,9 +99,20 @@ public class DeplacementJoueur : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+    
         if(hit.gameObject == _objectif)
         {
             ReplacerJoueur();
+        } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemi")
+        {
+            Debug.Log("Toucher un ennemi");
+            //ChargerDefaite();
         }
     }
 }
+ 
