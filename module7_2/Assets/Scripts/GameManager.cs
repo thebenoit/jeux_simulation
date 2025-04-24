@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
         NbRessourcesDisponibles = nbRessources;
     }
 
+    private void OnApplicationQuit()
+    {
+        
+        Destroy(Instance);
+    }
+
     // Update is called once per frame
     void Update()
     {

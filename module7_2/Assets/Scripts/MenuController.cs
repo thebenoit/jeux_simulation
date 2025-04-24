@@ -10,20 +10,24 @@ public class MenuController : MonoBehaviour
     private void Start()
     {
         villageois = GameObject.FindObjectOfType<Villageois>();
+
     }
 
     public void ChoixHasard()
     {
         villageois.ChangerStrategieChoix(new StrategieChoixHasard());
+        PlayerPrefs.SetInt("strategie", 3);
     }
 
     public void ChoixPlusProche()
     {
         villageois.ChangerStrategieChoix(new StrategieChoixPlusProche());
+        PlayerPrefs.SetInt("strategie", 1);    
     }
 
     public void ChoixEquilibre()
     {
         villageois.ChangerStrategieChoix(new StrategieChoixEquilibre());
+        PlayerPrefs.SetInt("strategie", 2);
     }
 }

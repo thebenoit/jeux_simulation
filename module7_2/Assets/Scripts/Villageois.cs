@@ -20,6 +20,23 @@ public class Villageois : MonoBehaviour
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        int idStrategie = PlayerPrefs.GetInt("strategie");
+
+        switch (idStrategie) 
+        {
+            case 1:
+                strategieChoix = new StrategieChoixPlusProche();
+                break;
+            case 2:
+                strategieChoix = new StrategieChoixEquilibre();
+                break;
+            case 3:
+                strategieChoix = new StrategieChoixHasard();
+                break;
+
+
+        }
     }
 
     private void Update()
