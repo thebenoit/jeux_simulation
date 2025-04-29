@@ -9,26 +9,32 @@ public class MenuiController : MonoBehaviour
     [SerializeField] private Button _boutonPlusProche;
     [SerializeField] private Button _boutonEquilibre;
     private GameManager gm;
+
+    private Villageois villageois;
     private int strategieChoisie = 1;
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        villageois = GameObject.FindObjectOfType<Villageois>();
     }
 
     public void cliquerHasard()
     {
-         gm.StrategieChoisie = new StrategieChoixHasard();
+        Debug.Log("Choix de la ressource au hasard");
+         villageois.ChangerStrategie(new StrategieChoixHasard());
     }
 
     public void cliquerLePlusProche()
     {
-        gm.StrategieChoisie = new StrategieChoixPlusProche();
+        Debug.Log("Choix de la ressource la plus proche");
+        villageois.ChangerStrategie(new StrategieChoixPlusProche());
     }
 
     public void cliquerEquilibre()
     {
-         gm.StrategieChoisie = new StrategieChoixEquilibre();
+        Debug.Log("Choix de la ressource la plus Equilibre");
+         villageois.ChangerStrategie(new StrategieChoixEquilibre());
     }
  
 
