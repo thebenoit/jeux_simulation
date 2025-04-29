@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Villageois : MonoBehaviour
 {
+    private GameManager _gm;
     private int or;
     private int plantes;
     private int roches;
@@ -24,6 +25,7 @@ public class Villageois : MonoBehaviour
     {
         if (numeroRessourceChoisie == -1)
         {
+            
             ChoisirRessource();
         }
         else if (numeroRessourceChoisie != -1 && Vector3.Distance(_navMeshAgent.destination, transform.position) < 1.4f)
@@ -42,6 +44,7 @@ public class Villageois : MonoBehaviour
             
             GameManager.Instance.DetruireRessource(numeroRessourceChoisie);
             
+            
             ChoisirRessource();
         }
     }
@@ -53,9 +56,17 @@ public class Villageois : MonoBehaviour
         texteRoches.text = "Roches: " + roches;
     }
 
+    private void ChangerStrategie()
+    {
+        this.strategieChoix = strategie;
+        ChoisirRessource();
+
+    }
+
     private void ChoisirRessource()
     {
-        // Choix au hasard
+             
+            // Choix au hasard
         int nbRessourcesDisponibles = GameManager.Instance.NbRessourcesDisponibles;
 
         if (nbRessourcesDisponibles == 0)
@@ -64,7 +75,7 @@ public class Villageois : MonoBehaviour
         }
         else
         {
-            numeroRessourceChoisie = Random.Range(0, nbRessourcesDisponibles);
+            numeroRessourceChoisie = strategieChoix.ChoisirRessource(this, GameManager.Instance.Ressources, nbRessourcesDisponibles);
 
             var objet = GameManager.Instance.Ressources[numeroRessourceChoisie];
             var ressource = objet.GetComponent<Ressource>();

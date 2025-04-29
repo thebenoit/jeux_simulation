@@ -6,9 +6,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] prefabsRessources;
     [SerializeField] private int nbRessources;
 
+    [SerializeField] private Strategie _strategieChoisie;
+
+
     public static GameManager Instance;
     public Ressource[] Ressources;
     public int NbRessourcesDisponibles { get; private set; }
+
+    public Strategie StrategieChoisie
+    {
+        get { return _strategieChoisie; }
+        set { _strategieChoisie = value; }
+    }
 
     private void Awake()
     {
@@ -26,7 +35,7 @@ public class GameManager : MonoBehaviour
     private void CreerRessources()
     {
         Ressources = new Ressource[nbRessources];
-        // Crée les ressources au début du jeu
+        // Crï¿½e les ressources au dï¿½but du jeu
         for (int i = 0; i < nbRessources; i++)
         {
             float x = Random.value * 50 - 25;
@@ -40,6 +49,8 @@ public class GameManager : MonoBehaviour
         NbRessourcesDisponibles = nbRessources;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -49,14 +60,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+
     public void DetruireRessource(int numeroRessourceChoisie)
     {
         Destroy(Ressources[numeroRessourceChoisie].gameObject);
 
-        // Déplace le dernier objet dans cette case pour toujours
-        // garder un tableau allant de 0 à NbRessourcesDisponibles
+        // Dï¿½place le dernier objet dans cette case pour toujours
+        // garder un tableau allant de 0 ï¿½ NbRessourcesDisponibles
         //
-        //  A B C D X Y Z  --> détruire D
+        //  A B C D X Y Z  --> dï¿½truire D
         //  A B C Z X Y null
         Ressources[numeroRessourceChoisie] = Ressources[NbRessourcesDisponibles - 1];
         Ressources[NbRessourcesDisponibles - 1] = null;
