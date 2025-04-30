@@ -6,13 +6,18 @@ using Random = UnityEngine.Random;
 public class Villageois : MonoBehaviour
 {
     private GameManager _gm;
-    private int or;
-    private int plantes;
-    private int roches;
+    public int Or;
+    public int Plantes;
+    public int Roches;
     private int numeroRessourceChoisie = -1;
     private NavMeshAgent _navMeshAgent;
 
     private Strategie strategieChoix = new StrategieChoixHasard();
+    public Strategie StrategieChoix
+    {
+        get { return strategieChoix; }
+        set { strategieChoix = value; }
+    }
     
     [SerializeField] private TMP_Text texteOr;
     [SerializeField] private TMP_Text textePlantes;
@@ -39,11 +44,11 @@ public class Villageois : MonoBehaviour
 
             var ressource = objet.GetComponent<Ressource>();
             if (ressource.Type == TypeRessource.Or)
-                or++;
+                Or++;
             else if (ressource.Type == TypeRessource.Plante)
-                plantes++;
+                Plantes++;
             else if (ressource.Type == TypeRessource.Roche)
-                roches++;
+                Roches++;
 
             MiseAJourTextes();
             
@@ -56,9 +61,9 @@ public class Villageois : MonoBehaviour
 
     private void MiseAJourTextes()
     {
-        texteOr.text = "Or: " + or;
-        textePlantes.text = "Plantes: " + plantes;
-        texteRoches.text = "Roches: " + roches;
+        texteOr.text = "Or: " + Or;
+        textePlantes.text = "Plantes: " + Plantes;
+        texteRoches.text = "Roches: " + Roches;
     }
 
     public void ChangerStrategie(Strategie strategie)

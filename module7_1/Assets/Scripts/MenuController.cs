@@ -36,6 +36,40 @@ public class MenuiController : MonoBehaviour
         Debug.Log("Choix de la ressource la plus Equilibre");
          villageois.ChangerStrategie(new StrategieChoixEquilibre());
     }
+     
+
+     void OnApplicationQuit()
+     {
+        int idStrategie = 0;
+
+        if(villageois.StrategieChoix is StrategieChoixHasard)
+            idStrategie = 0;
+        else if(villageois.StrategieChoix is StrategieChoixPlusProche)
+            idStrategie = 1;
+        else if(villageois.StrategieChoix is StrategieChoixEquilibre)
+            idStrategie = 2;
+
+        PlayerPrefs.SetInt("StrategieChoixRessource", idStrategie);
+     }
+    public void ChargerStrategie()
+    {
+        int id = PlayerPrefs.GetInt("StrategieChoixRessource",0);
+
+        print("Stratégie rechargée: " + id);
+
+        if(id == 0)
+        {
+            villageois.ChangerStrategie(new StrategieChoixHasard());
+        }
+        else if(id == 1)
+        {
+            villageois.ChangerStrategie(new StrategieChoixPlusProche());
+        }
+        else if(id == 2)
+        {
+            villageois.ChangerStrategie(new StrategieChoixEquilibre());
+        }
+    }
  
 
     // Update is called once per frame

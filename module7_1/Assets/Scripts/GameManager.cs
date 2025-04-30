@@ -1,10 +1,14 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabsRessources;
     [SerializeField] private int nbRessources;
+    private string NomFichierSauvegarde;
 
     [SerializeField] private Strategie _strategieChoisie;
 
@@ -21,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        NomFichierSauvegarde = Application.persistentDataPath + "/etat-jeu.json";
         // Valide qu'il y a un seul GameManager
         Debug.Assert(Instance == null);
         Instance = this;
@@ -29,11 +34,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreerRessources();
+
+        if(File.Exists(NomFichierSauvegarde))
+        {
+            Charger();
+        }
+        
+            CreerRessources();
+        
+
     }
 
+     void OnApplicationQuit()
+     {
+        Sauvegarder();      
+     }
     private void CreerRessources()
     {
+
+        
+
         Ressources = new Ressource[nbRessources];
         // Cr�e les ressources au d�but du jeu
         for (int i = 0; i < nbRessources; i++)
@@ -60,7 +80,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    private void onApplicationQuit()
+    {
+        Sauvegarder();
+    }
+
+    public void Sauvegarder()
+    {
+      var villageois = FindObjectOfType<Villageois>();
+
+      EtatJeu etatJeu = new EtatJeu();
+      
+      etatJeu.Or = villageois.Or;
+      etatJeu.Plantes = villageois.Plantes;
+      etatJeu.Roches = villageois.Roches;
+
+      etatJeu.NbRessourcesDisponibles = NbRessourcesDisponibles;
+
+      string json = JsonUtility.ToJson(etatJeu);
+      File.WriteAllText(NomFichierSauvegarde, json);
+    }
+
+    public void Charger()
+    {
+        var json = File.ReadAllText(NomFichierSauvegarde);
+
+        EtatJeu etatJeu = JsonUtility.FromJson<EtatJeu>(json);
+
+        var villageois = FindObjectOfType<Villageois>();
+        villageois.Or = etatJeu.Or;
+        villageois.Plantes = etatJeu.Plantes;
+        villageois.Roches = etatJeu.Roches;
+        NbRessourcesDisponibles = etatJeu.NbRessourcesDisponibles;
+
+    }
 
     public void DetruireRessource(int numeroRessourceChoisie)
     {
