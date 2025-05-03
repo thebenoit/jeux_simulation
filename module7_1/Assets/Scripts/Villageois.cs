@@ -23,7 +23,7 @@ public class Villageois : MonoBehaviour
     [SerializeField] private TMP_Text textePlantes;
     [SerializeField] private TMP_Text texteRoches;
 
-    private Strategie strategie = new Strategie();
+    private Strategie strategie = new StrategieChoixHasard();
 
     private void Start()
     {

@@ -205,9 +205,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ChoixEquilibre
+      - m_Target: {fileID: 195563760}
+        m_TargetAssemblyTypeName: MenuiController, Assembly-CSharp
+        m_MethodName: cliquerEquilibre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 195563758}
   - component: {fileID: 195563757}
   - component: {fileID: 195563759}
+  - component: {fileID: 195563760}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -452,6 +453,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08101be94070b7a0da7d48a50a24fc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &195563760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195563756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef41a2ba60d6be40bd1fbb85b1f435f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boutonHasard: {fileID: 1865851285}
+  _boutonPlusProche: {fileID: 365106920}
+  _boutonEquilibre: {fileID: 76629603}
 --- !u!1 &204181109
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,9 +819,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ChoixPlusProche
+      - m_Target: {fileID: 195563760}
+        m_TargetAssemblyTypeName: MenuiController, Assembly-CSharp
+        m_MethodName: cliquerLePlusProche
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2048,9 +2064,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ChoixHasard
+      - m_Target: {fileID: 195563760}
+        m_TargetAssemblyTypeName: MenuiController, Assembly-CSharp
+        m_MethodName: cliquerHasard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2168,6 +2184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e008768eacad2a038a255d24e84ffb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Or: 0
+  Plantes: 0
+  Roches: 0
   texteOr: {fileID: 497486442}
   textePlantes: {fileID: 204181111}
   texteRoches: {fileID: 1850862892}
