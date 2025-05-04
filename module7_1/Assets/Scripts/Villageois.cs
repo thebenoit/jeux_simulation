@@ -61,7 +61,7 @@ public class Villageois : MonoBehaviour
         }
     }
 
-    private void MiseAJourTextes()
+    public void MiseAJourTextes()
     {
         texteOr.text = "Or: " + Or;
         textePlantes.text = "Plantes: " + Plantes;

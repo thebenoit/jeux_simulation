@@ -37,7 +37,11 @@ public class GameManager : MonoBehaviour
 
         if(File.Exists(NomFichierSauvegarde))
         {
+            Debug.Log("charge certains données quand le fichiers existe");
             Charger();
+        }else{
+            Debug.Log("crée les ressources quand le fichiers n'existe pas");
+            ///CreerRessources();
         }
         
             CreerRessources();
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
 
      void OnApplicationQuit()
      {
+        Debug.Log("sauvegarde les données quand l'application quitte");
         Sauvegarder();      
      }
     private void CreerRessources()
@@ -80,38 +85,47 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void onApplicationQuit()
-    {
-        Sauvegarder();
-    }
-
     public void Sauvegarder()
     {
-      var villageois = FindObjectOfType<Villageois>();
+      try
+      {
+          Debug.Log("sauvegarde En cours...");
+          var villageois = FindObjectOfType<Villageois>();
 
-      EtatJeu etatJeu = new EtatJeu();
-      
-      etatJeu.Or = villageois.Or;
-      etatJeu.Plantes = villageois.Plantes;
-      etatJeu.Roches = villageois.Roches;
+          EtatJeu etatJeu = new EtatJeu();
+          
+          etatJeu.Or = villageois.Or;
+          etatJeu.Plantes = villageois.Plantes;
+          etatJeu.Roches = villageois.Roches;
 
-      etatJeu.NbRessourcesDisponibles = NbRessourcesDisponibles;
+          etatJeu.NbRessourcesDisponibles = NbRessourcesDisponibles;
 
-      string json = JsonUtility.ToJson(etatJeu);
-      File.WriteAllText(NomFichierSauvegarde, json);
+          string json = JsonUtility.ToJson(etatJeu);
+          File.WriteAllText(NomFichierSauvegarde, json);
+      }
+      catch (System.Exception e)
+      {
+          Debug.LogError("Erreur lors de la sauvegarde: " + e.Message);
+      }
     }
 
     public void Charger()
     {
+        Debug.Log("chargement des données");
         var json = File.ReadAllText(NomFichierSauvegarde);
 
         EtatJeu etatJeu = JsonUtility.FromJson<EtatJeu>(json);
 
         var villageois = FindObjectOfType<Villageois>();
         villageois.Or = etatJeu.Or;
+        Debug.Log("villageois.Or: " + villageois.Or);
         villageois.Plantes = etatJeu.Plantes;
+        Debug.Log("villageois.Plantes: " + villageois.Plantes);
         villageois.Roches = etatJeu.Roches;
+        Debug.Log("villageois.Roches: " + villageois.Roches);
         NbRessourcesDisponibles = etatJeu.NbRessourcesDisponibles;
+
+        villageois.MiseAJourTextes();
 
     }
 
