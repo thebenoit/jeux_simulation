@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEditor;
 using System.Linq;
-
+using System.IO;
 public class TestVillageois
 {
    private GameObject prefabOr, prefabPiege;
@@ -15,6 +15,8 @@ public class TestVillageois
    public void CreerObjets()
    {
     var prefabVillageois = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Villageois.prefab");
+
+    prefabVillageois.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
 
     villageois = GameObject.Instantiate(prefabVillageois,new Vector3(0,0,0), Quaternion.identity);
 
@@ -71,5 +73,55 @@ public class TestVillageois
     //ASSERT
     Assert.IsTrue(objectif == null);
    }
+
+   [UnityTest]
+   public IEnumerator ObjectifFauxOr()
+   {
+    // ARRANGE
+    var or1 = GameObject.Instantiate(prefabOr, new Vector3(10,0,10),Quaternion.identity);
+    var or2 = GameObject.Instantiate(prefabOr, new Vector3(10,0,0),Quaternion.identity);
+    var or3 = GameObject.Instantiate(prefabOr, new Vector3(0,0,10),Quaternion.identity);
+    var fauxOr = GameObject.Instantiate(prefabOr, new Vector3(5,0,5),Quaternion.identity);
+
+    or1.GetComponent<Ressource>().Valeur = 10;
+    or2.GetComponent<Ressource>().Valeur = 20;
+    or3.GetComponent<Ressource>().Valeur = 30;
+    fauxOr.GetComponent<Ressource>().Valeur = -15;
+
+    // ACT
+    yield return null;
+
+    var objectif = villageois.GetComponent<Villageois>().Objectif;
+
+    //ASSERT
+    Assert.AreNotSame(fauxOr,objectif);
+   }
+
+   [UnityTest]
+   public IEnumerator CollisionPiege()
+   {
+    // ARRANGE
+    var piege1 = GameObject.Instantiate(prefabPiege, new Vector3(10,0,10),Quaternion.identity);
+    villageois.GetComponent<Villageois>().Or = 50;
+
+
+    // ACT
+    yield return null;
+    //Deplacer le villageois sur le piege
+    villageois.transform.position = new Vector3(10,0,10);
+
+    yield return null;
+    yield return new WaitForFixedUpdate();
+    yield return null;
+
+    int orFinal = villageois.GetComponent<Villageois>().Or;
+    
+    
+
+    //ASSERT
+    Assert.AreEqual(orFinal,40);
+   }
+
+
 
 }
